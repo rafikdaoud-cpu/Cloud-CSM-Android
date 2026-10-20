@@ -753,6 +753,13 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         viewThemeUtils.material.colorTextInputLayout(accountSetupBinding.hostUrlContainer, ColorRole.ON_PRIMARY);
         viewThemeUtils.platform.colorEditTextOnPrimary(accountSetupBinding.hostUrlInput);
 
+        accountSetupBinding.hostUrlInput.setText(getString(R.string.suggested_server));
+        accountSetupBinding.hostUrlInput.setEnabled(false);
+        accountSetupBinding.hostUrlInput.setFocusable(false);
+        accountSetupBinding.hostUrlInput.setClickable(false);
+        accountSetupBinding.hostUrlInput.setCursorVisible(false);
+        accountSetupBinding.scanQr.setVisibility(View.GONE);
+
         if (deviceInfo.hasCamera(this)) {
             accountSetupBinding.scanQr.setOnClickListener(v -> onScan());
             viewThemeUtils.platform.tintDrawable(this, accountSetupBinding.scanQr.getDrawable(), ColorRole.ON_PRIMARY);
